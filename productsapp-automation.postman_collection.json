@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "3e0e2772-a3a3-482c-8a63-33d49d94b0c3",
+		"name": "productsapp-automation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "58bdfd04-6643-4a7d-ac97-f82a1190bf42",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.test(\"response to have an Id\", function(){\r",
+							"    pm.response.to.have.jsonBody(\"[0].Id\");\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.test(\"response to have an Id\", function(){\r",
+							"    pm.response.to.have.jsonBody(\"[1].Id\");\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.test(\"response to have an Id\", function(){\r",
+							"    pm.response.to.have.jsonBody(\"[2].Id\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"response must be valid and have a body\", function () {\r",
+							"     pm.response.to.be.ok;\r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"value of [0].Id to be 1\", function(){\r",
+							"    pm.expect(1).to.equal(jsonData[0].Id)\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"value of [0].Name to be Tomato Soup\", function(){\r",
+							"    pm.expect(\"Tomato Soup\").to.equal(jsonData[0].Name)\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"value of [0].Category to be Groceries\", function(){\r",
+							"    pm.expect(\"Groceries\").to.equal(jsonData[0].Category)\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"value of [0].Price to be 1\", function(){\r",
+							"    pm.expect(1).to.equal(jsonData[0].Price)\r",
+							"    });\r",
+							"\r",
+							"\r",
+							"pm.test(\"value of [1].Id to be 2\", function(){\r",
+							"    pm.expect(2).to.equal(jsonData[1].Id)\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"value of [1].Name to be Yo-yo\", function(){\r",
+							"    pm.expect(\"Yo-yo\").to.equal(jsonData[1].Name)\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"value of [1].Category to be Toys\", function(){\r",
+							"    pm.expect(\"Toys\").to.equal(jsonData[1].Category)\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"value of [1].Price to be 3.75M\", function(){\r",
+							"    pm.expect(3.75).to.equal(jsonData[1].Price)\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"value of [2].Id to be 3\", function(){\r",
+							"    pm.expect(3).to.equal(jsonData[2].Id)\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"value of [2].Name to be Hammer\", function(){\r",
+							"    pm.expect(\"Hammer\").to.equal(jsonData[2].Name)\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"value of [2].Category to be Hardware\", function(){\r",
+							"    pm.expect(\"Hardware\").to.equal(jsonData[2].Category)\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"value of [2].Price to be 16.99M\", function(){\r",
+							"    pm.expect(16.99).to.equal(jsonData[2].Price)\r",
+							"    });\r",
+							"\r",
+							"pm.test(\"response to be 200 OK\", function(){pm.response.to.have.status(200);});pm.test(\"response time less than 1000MS\", function(){pm.expect(pm.response.responseTime).to.be.below(1000);});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:56352/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56352",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Second Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
