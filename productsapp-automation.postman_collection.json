@@ -112,11 +112,62 @@
 		},
 		{
 			"name": "Second Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "72151ef4-4f6d-4c8f-9545-39c6b81fcd78",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.test(\"response to have an Id\", function(){\r",
+							"    pm.response.to.have.jsonBody(\"Id\");\r",
+							"});\r",
+							"pm.test(\"response to have an Name\", function(){\r",
+							"    pm.response.to.have.jsonBody(\"Name\");\r",
+							"});\r",
+							"pm.test(\"response to have an Category\", function(){\r",
+							"    pm.response.to.have.jsonBody(\"Category\");\r",
+							"});\r",
+							"pm.test(\"response to have an Price\", function(){\r",
+							"    pm.response.to.have.jsonBody(\"Price\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"value of Id to be 1\", function(){\r",
+							"    pm.expect(1).to.equal(jsonData.Id)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"value of Name to be Tomato Soup\", function(){\r",
+							"    pm.expect(\"Tomato Soup\").to.equal(jsonData.Name)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"value of Category to be Groceries\", function(){\r",
+							"    pm.expect(\"Groceries\").to.equal(jsonData.Category)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"value of Price to be 1\", function(){\r",
+							"    pm.expect(1).to.equal(jsonData.Price)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response to be 200 OK\", function(){pm.response.to.have.status(200);});pm.test(\"response time less than 1000MS\", function(){pm.expect(pm.response.responseTime).to.be.below(1000);});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "localhost:56352/api/products/1",
+					"host": [
+						"localhost"
+					],
+					"port": "56352",
+					"path": [
+						"api",
+						"products",
+						"1"
+					]
 				}
 			},
 			"response": []
